@@ -1,0 +1,18 @@
+extends ../shared/template
+
+block content
+  h1 Projects
+
+  .project
+    form(action='/projects/edit/#{project._id}', method='POST')
+      input(type='hidden', name='_method', value='put')
+      input(type='text', name='title', placeholder='Title' value='#{project.title}')
+      textarea(name='description', placeholder='Description') #{project.description}
+      input(type='text', name='tags', placeholder='Tags' value='#{project.tags}')
+      input(type='text', name='git', placeholder='Git Url' value='#{project.git}')
+      input(type='text', name='app', placeholder='App Url' value='#{project.app}')
+      input(type='date', name='date' value='#{project.date}')
+      h2 #{project.photos.length} Photos - Add More?
+      input(type='file', name='photos', multiple=true)
+
+      button Save

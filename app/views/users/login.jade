@@ -1,0 +1,10 @@
+extends ../shared/template
+
+block content
+  h1 #{title}
+
+  form(action='/login', method='post')
+    input(type='email', name='email', autofocus=true, placeholder='Your e-mail')
+    input(type='password', name='password', placeholder='Your password')
+
+    button Log in
